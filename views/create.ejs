@@ -10,14 +10,17 @@
 <body>
     <h1>Cadastro de consultas</h1>
     <hr>
-    <form>
+    <form method="post" action="create">
         <input type="text" name="name" id="name" placeholder="Nome do paciente" class="form-control">
         <input type="email" name="email" id="email" placeholder="email@email.com" class="form-control">
         <input type="text" name="cpf" id="cpf" placeholder="CPF" class="form-control cpf">
         <input type="text" name="description" id="description" placeholder="Descrição"class="form-control">
         <input type="date" name="date" id="date" placeholder="00/00/0000" class="form-control">
         <input type="time" name="time" id="time" placeholder="00:00" class="form-control">
-        <button class="btn btn-success">Agendar consulta</button>
+        <br>
+        <div class="d-grid gap-2">
+            <button class="btn btn-success">Agendar consulta</button>
+        </div>
     </form>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
