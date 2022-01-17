@@ -1,6 +1,6 @@
 var appointment = require("./../models/Appointment");
 var mongoose = require("mongoose");
-
+var AppointmentFactory = require("./../factories/AppointmentFactory");
 const Appo = mongoose.model("appointment", appointment)
 
 class AppointmentService{
@@ -29,10 +29,30 @@ class AppointmentService{
         if(showFinished){
             return await Appo.find();
         }else{
-            return await Appo.find({'finished': false})
+            var appos = await Appo.find({'finished': false})
+            var appointments = [];
+
+            appos.forEach(appointment =>{
+
+                if(appointment.date != undefined){
+                    appointments.push(AppointmentFactory.Build(appointment))
+                }
+            })
+
+            return appointments
         }
     }
 
+    async GetById(id){
+        try {
+            var event = await Appo.findOne({'_id': id})
+            return event
+        } catch (error) {
+            console.log(error)
+            return undefined
+        }
+
+    }
 }
 
 module.exports = new AppointmentService();

@@ -42,11 +42,21 @@ app.post("/create",async (req, res)=>{
 
 app.get("/getcalendar", async (req,res) => {
     
-    var consulta = await AppointmentService.GetAll(false);
+    var appointments = await AppointmentService.GetAll(false);
 
-    res.json(consulta);
+    res.json(appointments);
 })
 
+app.get("/event/:id", async (req, res)=>{
+    const id = req.params.id;
+    var appointment = await AppointmentService.GetById(id)
+    if( appointment){
+        console.log(appointment)
+        res.render("event", {appo : appointment})
+    }else{
+        res.send("error")
+    }
+})
 
 app.listen(8080, ()=>{
     console.log("Running")
