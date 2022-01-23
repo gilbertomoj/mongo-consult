@@ -77,6 +77,14 @@ app.get("/searchresult", async (req, res)=>{
     const appos = await AppointmentService.Search(req.query.search)
     res.render("list",{appos});
 })
+
+//Pulling
+var pollTime = 5000
+setInterval(async ()=>{
+    await AppointmentService.SendNotification();
+
+}, pollTime)
+
 app.listen(8080, ()=>{
     console.log("Running in http://localhost:8080/")
 })

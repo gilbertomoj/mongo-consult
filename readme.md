@@ -8,4 +8,4 @@ Sistema de cadastro e gerenciamento de agendamentos com MongoDB
 - [MongoDB](https://www.mongodb.com/)
 - [EJS](https://ejs.co/)
 - [FullCalendar](https://fullcalendar.io/)
-
+- [Mailtrap](https://mailtrap.io/)
